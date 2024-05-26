@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProject.Pages.MainPage"
+             Title="StudentPage">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="25">
+            <StackLayout Spacing="5">
+                <Label Text="Student Name" FontAttributes="Bold"/>
+                <Entry x:Name="Stu_Name" />
+                
+                <Label Text="Student Department" FontAttributes="Bold"/>
+                <Entry x:Name="Stu_Dept" />
+                
+                <Button x:Name="Button_Add" BackgroundColor="Grey" Text="ADD" Clicked="Button_Add_Clicked" />
+
+                <ScrollView>
+                    <ListView x:Name="Stu_List_View">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout>
+                                        <Label Text="{Binding ID}"/>
+                                        <Label Text="{Binding Name}"/>
+                                        <Label Text="{Binding Department}"/>
+                                        <Button x:Name="Button_Delete" BackgroundColor="Grey" Text="DELETE" BindingContext="{Binding ID}" Clicked="Button_Delete_Clicked" />
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </ScrollView>
+
+                <Button x:Name="Button_Show" BackgroundColor="Grey" Text="Show" Clicked="Button_Show_Clicked" />
+            </StackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

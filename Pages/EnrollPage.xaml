@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinalProject.Pages.EnrollPage"
+             Title="EnrollPage">
+    <VerticalStackLayout>
+        <StackLayout Margin="70,20,70,0" Spacing="5" >
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Student" FontAttributes="Bold" TextDecorations="Underline" HorizontalOptions="CenterAndExpand" />
+                <Label Text="Course" FontAttributes="Bold" TextDecorations="Underline"   HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <ListView x:Name="lstStudents" HorizontalOptions="CenterAndExpand">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            
+                                <TextCell Text="{Binding Name}" />
+                               
+                           
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <ListView x:Name="lstCourses" HorizontalOptions="CenterAndExpand">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                           
+                                <TextCell Text="{Binding Crs_Name}" />
+                            
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <Button Text="Add" Clicked="Enrollmen_Add" BackgroundColor="Grey" />
+            <Button Text="Show" Clicked="Enrollmen_Show" BackgroundColor="Grey" />
+            <Label Text="Enrolls" FontAttributes="Bold" Margin="120,30,0,0" TextDecorations="Underline"/>
+            <ListView x:Name="lstEnrollments">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding Stu_ID, StringFormat='Student ID: {0}'}" />
+                                <Label Text="{Binding Crs_Cod, StringFormat='Course Code: {0}'}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Text="Delete" Clicked="Enroll_Delete_Button" BackgroundColor="Grey" />
+        </StackLayout>
+    </VerticalStackLayout>
+</ContentPage>
